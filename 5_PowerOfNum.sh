@@ -3,8 +3,7 @@ read -p "Enter the power : " power
 
 result=1
 
-for (( i=1; i<=$power; i++ ))
-do
+for ((i = 1; i <= $power; i++)); do
     result=$((result * base))
 done
 

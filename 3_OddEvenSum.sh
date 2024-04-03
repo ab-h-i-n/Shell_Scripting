@@ -1,18 +1,16 @@
 odd_sum=0
 even_sum=0
 
-echo "Enter a list of numbers and press enter to finish "
+echo "Enter a list of numbers and press enter :  "
+read -a num
 
-while read num; do
-    if [ -z $num ]; then
-        break
-    fi
-    if [ $((num % 2)) -eq 0 ]; then
-        even_sum=$((even_sum + num))
+for i in ${num[@]}; do
+    if [ $((i % 2)) -eq 0 ]; then
+        even_sum=$((even_sum + i))
     else
-        odd_sum=$((odd_sum + num))
+        odd_sum=$((odd_sum + i))
     fi
 done
 
-echo "Sum of odd numbers : $odd_sum"
-echo "Sum of even numbers : $even_sum"
+echo "Odd Sum : $odd_sum"
+echo "Even Sum : $even_sum"

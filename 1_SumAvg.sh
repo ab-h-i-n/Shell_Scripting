@@ -2,19 +2,16 @@ sum=0
 count=0
 
 echo "Enter a list of numbers and press enter to finish "
+read -a num
 
-while read num; do
-    if [ -z $num ]; then
-        break
-    fi
-    sum=$((sum + num))
-    count=$((count + 1))
+for i in ${num[@]}
+do
+    sum=$((sum + i))
+    ((count++))
 done
 
-if [ $count -eq 0 ]; then
-    echo "No numbers entered"
-else
-    avg=$((sum / count))
-    echo "Sum : $sum"
-    echo "Average : $avg"
-fi
+
+avg=$((sum / count))
+
+echo "Sum is $sum"
+echo "Avg is $avg"
