@@ -1,4 +1,3 @@
-#!/bin/bash
 
 # Function to check ownership of a file
 check_ownership() {
@@ -35,17 +34,15 @@ compare_files() {
 }
 
 # Main script
-if [ $# -eq 2 ]; then
-    file1="$1"
-    file2="$2"
 
-    echo "Checking ownership:"
-    check_ownership "$file1" "$USER"
-    check_ownership "$file1" "$(id -gn)"
+echo "Enter the first file:"
+read file1
+echo "Enter the second file:"
+read file2
 
-    echo "Comparing file modification times:"
-    compare_files "$file1" "$file2"
-else
-    echo "Usage: $0 <file1> <file2>"
-    exit 1
-fi
+echo "Checking ownership:"
+check_ownership "$file1" "$(id -gn)"
+check_ownership "$file2" "$(id -gn)"
+
+echo "Comparing file modification times:"
+compare_files "$file1" "$file2"
